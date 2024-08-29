@@ -12,16 +12,7 @@ import Hero10 from "@/app/templates/Hero1";
 export const Hero = () => {
   return (
       <div>
-        <Hero1></Hero1>
-        <Hero2></Hero2>
-        <Hero3></Hero3>
-        <Hero4></Hero4>
-        <Hero5></Hero5>
         <Hero6></Hero6>
-        <Hero7></Hero7>
-        <Hero8></Hero8>
-        <Hero9></Hero9>
-        <Hero10></Hero10>
       </div>
 
 
