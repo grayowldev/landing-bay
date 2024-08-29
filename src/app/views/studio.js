@@ -4,22 +4,75 @@ import {motion} from "framer-motion";
 import {DropIndicator} from "@/app/components/DropIndicator";
 import {PageSection} from "@/app/components/page-section";
 import {Hero} from "@/app/section/Hero";
+import {SectionRenderer} from "@/app/components/section-renderer";
 
 
 
 export const Studio = () => {
     const [items, setItems] = useState([
         {
-            id: 6,
-            content: "Item 0",
+            id: 1,
             type: 'hero',
-            color: 'bg-red-500'
+            content: "Welcome to Our Website",
+            color: 'bg-blue-500',
+            // Additional properties specific to the Hero section can be added here
         },
-        { id: 1, content: "Item 1", color: 'bg-red-600' },
-        { id: 2, content: "Item 2", color: 'bg-red-700' },
-        { id: 3, content: "Item 3", color: 'bg-red-800' },
-        { id: 4, content: "Item 4", color: 'bg-red-900' },
-        { id: 5, content: "Item 5", color: 'bg-red-950' },
+        {
+            id: 2,
+            type: 'benefits',
+            content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+            color: 'bg-green-500',
+            // Additional properties specific to the Benefits section can be added here
+        },
+        {
+            id: 3,
+            type: 'features',
+            content: "Feature 1: Easy to Use, Feature 2: Customizable",
+            color: 'bg-purple-500',
+            // Additional properties specific to the Features section can be added here
+        },
+        {
+            id: 4,
+            type: 'call-to-action',
+            content: "Join Us Today!",
+            color: 'bg-yellow-500',
+            // Additional properties specific to the Call to Action section can be added here
+        },
+        {
+            id: 5,
+            type: 'testimonials',
+            content: "Customer 1: Amazing service!, Customer 2: Highly recommend!",
+            color: 'bg-teal-500',
+            // Additional properties specific to the Testimonials section can be added here
+        },
+        {
+            id: 6,
+            type: 'faq',
+            content: "Frequently Asked Questions",
+            color: 'bg-gray-500',
+            // Additional properties specific to the FAQ section can be added here
+        },
+        {
+            id: 7,
+            type: 'pricing',
+            content: "Basic: $9.99/month, Pro: $19.99/month",
+            color: 'bg-indigo-500',
+            // Additional properties specific to the Pricing section can be added here
+        },
+        {
+            id: 8,
+            type: 'footer',
+            content: "© 2024 Your Company. All Rights Reserved.",
+            color: 'bg-black text-white',
+            // Additional properties specific to the Footer section can be added here
+        },
+        {
+            id: 9,
+            type: 'blank',
+            content: "",
+            color: 'bg-white',
+            // Additional properties specific to the Blank section can be added here
+        }
     ])
 
     const onDragEnd = (event, info, draggedIndex) => {
@@ -87,11 +140,9 @@ export const Studio = () => {
                                 layout
                                 draggable={true}
                                 onDragStart={(event) => onDragStart(event, index)}
-                                onDragOver={(event) => onDragOver(event)}
-                            >
-                                {item.type == 'hero' ? (
-                                    <Hero></Hero>
-                                ) : item.content}
+                                onDragOver={(event) => onDragOver(event)}>
+
+                                <SectionRenderer data={item}></SectionRenderer>
                             </motion.div>
 
                         </PageSection>

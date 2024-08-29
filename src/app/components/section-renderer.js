@@ -13,7 +13,7 @@ export const SectionRenderer = ({data, children}) => {
         <div className="bg-white">
             {children}
             {data.type == 'hero' && <Hero></Hero>}
-            {data.type == 'benetits' && <Benefits></Benefits>}
+            {data.type == 'benefits' && <Benefits></Benefits>}
             {data.type == 'blank' && <BlankSection></BlankSection>}
             {data.type == 'call-to-action' && <CallToAction></CallToAction>}
             {data.type == 'faq' && <FAQ></FAQ>}
