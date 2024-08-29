@@ -9,10 +9,11 @@ import Hero8 from "@/app/templates/hero8";
 import Hero9 from "@/app/templates/hero9";
 import Hero10 from "@/app/templates/Hero1";
 
-export const Hero = () => {
+export const Hero = ({data, activeElement, toggleActive, findElement}) => {
+
   return (
       <div>
-        <Hero6></Hero6>
+        <Hero6 data={data} activeElement={activeElement} toggleActive={toggleActive} findElement={findElement}></Hero6>
       </div>
 
 
