@@ -1,7 +1,9 @@
 import {Element} from "@/app/components/element";
+import {PageSection} from "@/app/components/page-section";
 
-export const Render = ({data, activeElement, toggleActive, children}) => {
+export const Render = ({data, activeElement, toggleActive}) => {
     const render = () => {
+        if (!data) return null;
         if (data.type === 'button') {
             return renderButton()
         } else if (data.type === 'text') {
@@ -24,6 +26,8 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
             return renderList()
         } else if (data.type === 'map') {
             return renderMap()
+        } else {
+            return null
         }
 
     }
@@ -31,17 +35,17 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
     const renderText = () => {
         if (data.textType === 'title-text') {
             return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(element.id)}>
+                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
                     <h1 className="text-5xl font-bold mb-4">{data.content}</h1>
                 </Element> )
         } else if (data.textType === 'body') {
             return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(element.id)}>
+                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
                 <p className="text-lg mb-8">{data.content}</p>
                 </Element>)
         } else {
             return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(element.id)}>
+                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
                     <p className="text-lg mb-8">{data.content}</p>
                 </Element>)
         }
@@ -50,7 +54,7 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
 
     const renderButton = () => {
         return (
-            <Element isActive={activeElement === data.id} onClick={() => toggleActive(element.id)}>
+            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
                 <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">
                     {data.content}
                 </button>
@@ -59,11 +63,26 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
     }
 
     const renderImage = () => {
-        return null
+        return (
+            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                <img
+                    src={data.src}
+                    className="w-full h-full object-cover"
+                />
+            </Element>
+        )
     }
 
     const renderVideo = () => {
-        return null
+        return (
+            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                <video
+                    controls
+                    src={data.src}
+                    className="w-full h-full object-cover"
+                />
+            </Element>
+        )
     }
 
     const renderElement = () => {
@@ -71,7 +90,13 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
     }
 
     const renderSection = () => {
-        return null
+        return (
+            <PageSection>
+                <div className="w-screen h-96 bg-red-600">
+                    SECTION!!!
+                </div>
+            </PageSection>
+        )
     }
 
     const renderContainer = () => {
@@ -79,7 +104,15 @@ export const Render = ({data, activeElement, toggleActive, children}) => {
     }
 
     const renderInput = () => {
-        return null
+        return (
+            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                <input
+                    type={data.inputType}
+                    className="border rounded w-full py-2 px-3 text-gray-700"
+                    placeholder={data.placeholder}
+                />
+            </Element>
+        )
     }
 
     const renderTable = () => {

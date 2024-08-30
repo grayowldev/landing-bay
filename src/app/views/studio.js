@@ -30,6 +30,16 @@ export const Studio = () => {
 
         },
         {
+            id: 9,
+            type: 'blank',
+            content: "",
+            color: 'bg-white',
+            elements: [
+                13, 14, 16, 17, 18
+            ]
+
+        },
+        {
             id: 3,
             type: 'features',
             content: "Feature 1: Easy to Use, Feature 2: Customizable",
@@ -71,13 +81,7 @@ export const Studio = () => {
             color: 'bg-black text-white',
 
         },
-        {
-            id: 9,
-            type: 'blank',
-            content: "",
-            color: 'bg-white',
 
-        },
         {
             id: 10,
             type: "text",
@@ -94,6 +98,30 @@ export const Studio = () => {
             id: 12,
             type: 'button',
             content: 'Learn More'
+        },
+        {
+            id: 13,
+            type: 'image',
+            src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+        },
+        {
+            id: 14,
+            type: 'input',
+            inputType: 'text',
+            placeholder: 'Enter your email'
+        },
+        {
+            id: 16,
+            type: 'video',
+            src: 'https://videos.pexels.com/video-files/3173312/3173312-sd_640_360_30fps.mp4'
+        },
+        {
+            id: 17,
+            type: 'table',
+        },
+        {
+            id: 18,
+            type: 'list',
         }
     ])
 
@@ -148,7 +176,12 @@ export const Studio = () => {
     const onAddSection = () => {
         // TODO: Add section
         console.log("Section added")
-        setItems([...items, { id: items.length + 1, content: "Item " + (items.length + 1), color: 'bg-red-600' }])
+        setItems([...items,
+            {
+                id: items.length + 1,
+                type: 'blank',
+                content: "Item " + (items.length + 1),
+                color: 'bg-red-600' }])
     }
 
     const handleTextChange = (event, index) => {
@@ -164,7 +197,6 @@ export const Studio = () => {
             prevSection && prevSection.id === index ? { ...prevSection, content: newValue } : prevSection
         );
     };
-
 
 
     return (
