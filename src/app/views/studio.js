@@ -80,12 +80,14 @@ export const Studio = () => {
         },
         {
             id: 10,
-            type: 'title-text',
+            type: "text",
+            textType:'title-text',
             content: 'Welcome to Our Platform'
         },
         {
             id: 11,
             type: 'text',
+            textType:'body',
             content: 'A place where innovation meets creativity.'
         },
         {
