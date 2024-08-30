@@ -18,7 +18,7 @@ export const SectionRenderer = ({data, activeElement, toggleActive, findElement,
             {data.type === 'benefits' &&
                 <Benefits></Benefits>}
             {data.type === 'blank' &&
-                <BlankSection></BlankSection>}
+                <BlankSection data={data} activeElement={activeElement} toggleActive={toggleActive} findElement={findElement}></BlankSection>}
             {data.type === 'call-to-action' &&
                 <CallToAction></CallToAction>}
             {data.type === 'faq' &&
