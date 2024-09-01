@@ -20,7 +20,6 @@ export const Studio = () => {
             elements: [
                 10,11,12
             ]
-
         },
         {
             id: 2,
