@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import {motion} from "framer-motion";
 import {DropIndicator} from "@/app/components/DropIndicator";
 import {PageSection} from "@/app/components/page-section";
-import {Textarea} from "@/components/ui/textarea";
 import {Render} from "@/app/components/render";
 
 
@@ -52,6 +51,131 @@ export const Studio = ({genData, setView}) => {
                 ]
             },
             {
+                id: 4,
+                type: 'blank',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                elements: [
+                    {
+                        id: 100,
+                        type: "container",
+                        orientation: "horizontal",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                        ]
+                    },
+                    {
+                        id: 101,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                        ]
+                    },
+                    {
+                        id: 102,
+                        type: "container",
+                        orientation: "horizontal",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                fontSize: "24px",
+                                fontWeight: "normal",
+                                color: "#FFFFFF",
+                                marginBottom: "40px"
+                            },
+                        ]
+                    },
+                ]
+
+            },
+            {
                 id: 2,
                 type: 'benefits',
                 content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
@@ -59,6 +183,11 @@ export const Studio = ({genData, setView}) => {
                 elements: [
                     {
                         type: "text",
+                        textType: "heading",
+                        fontSize: "48px",
+                        fontWeight: "bold",
+                        color: "#FFFFFF",
+                        marginBottom: "20px"
                     },
                     {
                         type: "text",
@@ -69,24 +198,7 @@ export const Studio = ({genData, setView}) => {
                 ]
 
             },
-            {
-                id: 4,
-                type: 'blank',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                color: 'bg-green-500',
-                elements: [
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                ]
 
-            },
             {
                 id: 5,
                 type: 'call-to-action',
@@ -169,10 +281,76 @@ export const Studio = ({genData, setView}) => {
             ]
         },
         {
-            sectionType: "benefits",
+            id: 4,
+            sectionType: "blank",
+            content: [
+                {
+                    type: "container",
+                    contents: [
+                        {
+                            content: "Welcome to Your Next Adventure",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Explore the World with Us",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Discover amazing experiences tailored just for you.",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Get Started",
+                            type: "subheading",
+                        }
+                    ]
+                },
+                {
+                    type: "container",
+                    contents: [
+                        {
+                            content: "Welcome to Your Next Adventure (2)",
+                            type: "body"
+                        },
+                        {
+                            content: "Explore the World with Us (2)",
+                            type: "body"
+                        },
+                        {
+                            content: "Discover amazing experiences tailored just for you. (2)",
+                            type: "body"
+                        },
+                        {
+                            content: "Get Started (2)",
+                            type: "body",
+                        }
+                    ]
+                },
+                {
+                    type: "container",
+                    contents: [
+                        {
+                            content: "Welcome to Your Next Adventure",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Explore the World with Us",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Discover amazing experiences tailored just for you.",
+                            type: "subheading"
+                        },
+                        {
+                            content: "Get Started",
+                            type: "subheading",
+                        }
+                    ]
+                },
+            ]
         },
         {
-            sectionType: "blank",
+            sectionType: "benefits",
         },
         {
             sectionType: "call-to-action",
@@ -308,18 +486,18 @@ export const Studio = ({genData, setView}) => {
                     ))}
                     <DropIndicator indicatorId={'-1'}></DropIndicator>
                 </div>
-                <div className="w-96 bg-blue-700 p-4 text-white">
-                    <p>id: {activeElement}</p>
-                    <p>{activeSection? JSON.stringify(activeSection) : ''}</p>
-                    {activeSection &&
-                        <Textarea
-                            placeholder="Update Text"
-                            onChange={(event) => handleTextChange(event, activeElement)}
-                            value={activeSection.content}
-                            className="border rounded w-full py-2 px-3 text-gray-700"
-                        />
-                    }
-                </div>
+                {/*<div className="w-96 bg-blue-700 p-4 text-white">*/}
+                {/*    <p>id: {activeElement}</p>*/}
+                {/*    <p>{activeSection? JSON.stringify(activeSection) : ''}</p>*/}
+                {/*    {activeSection &&*/}
+                {/*        <Textarea*/}
+                {/*            placeholder="Update Text"*/}
+                {/*            onChange={(event) => handleTextChange(event, activeElement)}*/}
+                {/*            value={activeSection.content}*/}
+                {/*            className="border rounded w-full py-2 px-3 text-gray-700"*/}
+                {/*        />*/}
+                {/*    }*/}
+                {/*</div>*/}
             </div>
     )
 }
