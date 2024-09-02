@@ -10,17 +10,18 @@ import {chatSession} from "@/configs/aimodel";
 
 
 export default function Home() {
-    const [view, setView] = useState('prompt-view')
+    const [view, setView] = useState('studio')
+    const [genData, setGenData] = useState(null)
 
     const extractJson = (text) => {
         const regex = /\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}/g;
-            /\{[^{}]*\}/g;
+            // /\{[^{}]*\}/g;
 
         const matches = text.match(regex);
         console.log(matches);
         return matches
     }
-    const testAi = async () => {
+    const runPrompt = async () => {
         try {
             const response = await fetch('/api/readFile/init');
             const data = await response.json();
@@ -41,14 +42,25 @@ export default function Home() {
             console.log(aiResponse?.response.text());
             const jsonData = extractJson(aiResponse?.response.text())
             console.log(JSON.parse(jsonData))
+            if (jsonData) {
+                setGenData(JSON.parse(jsonData))
+                setView('studio')
+            }
+
+            console.log(genData)
         } catch (error) {
             console.error("Error fetching file:", error);
         }
     }
   return (
     <div className="grid h-screen w-screen">
-        <button onClick={testAi} className="absolute top-0 right-0 text-white">Test</button>
-        {view === 'studio' && <Studio></Studio>}
+        <button onClick={runPrompt} className="absolute top-0 right-0 text-white">Test</button>
+        {view === 'studio' && <Studio
+            genData={genData}
+            setView={setView}>
+
+        </Studio>}
+
         {view === 'prompt-view' && <PromptView></PromptView>}
 
     </div>
