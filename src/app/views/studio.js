@@ -3,9 +3,6 @@ import React, {useState} from "react";
 import {motion} from "framer-motion";
 import {DropIndicator} from "@/app/components/DropIndicator";
 import {PageSection} from "@/app/components/page-section";
-import {Hero} from "@/app/section/Hero";
-import {SectionRenderer} from "@/app/components/section-renderer";
-import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Render} from "@/app/components/render";
 
@@ -14,65 +11,64 @@ import {Render} from "@/app/components/render";
 export const Studio = ({genData, setView}) => {
     const [items, setItems] = useState(
         [
-        {
-            id: 1,
-            type: 'hero',
-            elements: [
-                {
-                    type: "text",
-                    textType: "heading",
-                    fontSize: "48px",
-                    fontWeight: "bold",
-                    color: "#FFFFFF",
-                    marginBottom: "20px"
-                },
-                {
-                    type: "text",
-                    textType: "heading",
-                    fontSize: "48px",
-                    fontWeight: "bold",
-                    color: "#FFFFFF",
-                    marginBottom: "20px"
-                },
-                {
-                    type: "text",
-                    textType: "subheading",
-                    fontSize: "24px",
-                    fontWeight: "normal",
-                    color: "#FFFFFF",
-                    marginBottom: "40px"
-                },
-                {
-                    type: "button",
-                    textType: "button",
-                    textColor: "#FFFFFF",
-                    backgroundColor: "#FF5733",
-                    fontSize: "18px",
-                    padding: "10px 30px",
-                    borderRadius: "5px"
-                },
+            {
+                id: 1,
+                type: 'hero',
+                elements: [
+                    {
+                        type: "text",
+                        textType: "heading",
+                        fontSize: "48px",
+                        fontWeight: "bold",
+                        color: "#FFFFFF",
+                        marginBottom: "20px"
+                    },
+                    {
+                        type: "text",
+                        textType: "heading",
+                        fontSize: "48px",
+                        fontWeight: "bold",
+                        color: "#FFFFFF",
+                        marginBottom: "20px"
+                    },
+                    {
+                        type: "text",
+                        textType: "subheading",
+                        fontSize: "24px",
+                        fontWeight: "normal",
+                        color: "#FFFFFF",
+                        marginBottom: "40px"
+                    },
+                    {
+                        type: "button",
+                        textType: "button",
+                        textColor: "#FFFFFF",
+                        backgroundColor: "#FF5733",
+                        fontSize: "18px",
+                        padding: "10px 30px",
+                        borderRadius: "5px"
+                    },
 
-            ]
-        },
-        {
-            id: 2,
-            type: 'benefits',
-            content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-            color: 'bg-green-500',
-            elements: [
-                {
-                    type: "text",
-                },
-                {
-                    type: "text",
-                },
-                {
-                    type: "text",
-                },
-            ]
+                ]
+            },
+            {
+                id: 2,
+                type: 'benefits',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                color: 'bg-green-500',
+                elements: [
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                ]
 
-        },
-
+            },
             {
                 id: 4,
                 type: 'blank',
@@ -145,99 +141,6 @@ export const Studio = ({genData, setView}) => {
                 ]
 
             }
-
-        // {
-        //     id: 9,
-        //     type: 'blank',
-        //     content: "",
-        //     color: 'bg-white',
-        //     elements: [
-        //         13, 14, 16, 17, 18
-        //     ]
-        //
-        // },
-        // {
-        //     id: 3,
-        //     type: 'features',
-        //     content: "Feature 1: Easy to Use, Feature 2: Customizable",
-        //     color: 'bg-purple-500',
-        //
-        // },
-        // {
-        //     id: 4,
-        //     type: 'call-to-action',
-        //     content: "Join Us Today!",
-        //     color: 'bg-yellow-500',
-        //
-        // },
-        // {
-        //     id: 5,
-        //     type: 'testimonials',
-        //     content: "Customer 1: Amazing service!, Customer 2: Highly recommend!",
-        //     color: 'bg-teal-500',
-        //
-        // },
-        // {
-        //     id: 6,
-        //     type: 'faq',
-        //     content: "Frequently Asked Questions",
-        //     color: 'bg-gray-500',
-        //
-        // },
-        // {
-        //     id: 7,
-        //     type: 'pricing',
-        //     content: "Basic: $9.99/month, Pro: $19.99/month",
-        //     color: 'bg-indigo-500',
-        //
-        // },
-        // {
-        //     id: 8,
-        //     type: 'footer',
-        //     content: "© 2024 Your Company. All Rights Reserved.",
-        //     color: 'bg-black text-white',
-        //
-        // },
-        //
-
-        // {
-        //     id: 13,
-        //     type: 'image',
-        //     src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-        // },
-        // {
-        //     id: 14,
-        //     type: 'input',
-        //     inputType: 'text',
-        //     placeholder: 'Enter your email'
-        // },
-        // {
-        //     id: 16,
-        //     type: 'video',
-        //     src: 'https://videos.pexels.com/video-files/3173312/3173312-sd_640_360_30fps.mp4'
-        // },
-        // {
-        //     id: 17,
-        //     type: 'table',
-        // },
-        // {
-        //     id: 18,
-        //     type: 'list',
-        // }
-        // {
-        //     "header": {},
-        //     "hero": {
-        //         "headline": "",
-        //         "subheadline": "",
-        //         "image": "",
-        //         "button_text": ""
-        //     },
-        //     "features": {},
-        //     "testimonials": {},
-        //     "call_to_action": {},
-        //     "about": {},
-        //     "footer": {}
-        // }
     ]
 )
 
@@ -292,11 +195,6 @@ export const Studio = ({genData, setView}) => {
         },
 
     ]
-
-
-    const test = () => {
-        console.log(genData)
-    }
 
     const [activeElement, setActiveElement] = useState(null);
     const [activeSection, setActiveSection] = useState(null);
@@ -407,19 +305,7 @@ export const Studio = ({genData, setView}) => {
 
                             </PageSection>
                         </div>
-
-
-
                     ))}
-                    {/*{Object.keys(items).map((key) => (*/}
-                    {/*    <div key={key}>*/}
-                    {/*        <p>{key}</p>*/}
-                    {/*        <Render*/}
-                    {/*            data={items[key]}*/}
-                    {/*            activeElement={activeElement}*/}
-                    {/*            toggleActive={toggleActive}></Render>*/}
-                    {/*    </div>*/}
-                    {/*))}*/}
                     <DropIndicator indicatorId={'-1'}></DropIndicator>
                 </div>
                 <div className="w-96 bg-blue-700 p-4 text-white">

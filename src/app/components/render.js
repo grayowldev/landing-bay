@@ -11,22 +11,9 @@ import {Footer} from "@/app/section/Footer";
 import {FAQ} from "@/app/section/FAQ";
 
 export const Render = ({data, content, activeElement, toggleActive, findElement}) => {
-
-    console.log("+++++++++")
-    console.log("LAYOUT")
-    console.log(data)
-    console.log("CONTENT")
-    console.log(content)
-    console.log("+++++++++")
     const render = () => {
         if (!data) return null;
         if (data.type === 'hero') {
-            console.log('rendering hero')
-            // console.log("+")
-            // console.log(content)
-            // console.log("++")
-            // const heroContent = content.find(section => section.sectionType === 'hero')
-            // console.log(heroContent)
             return renderHero(
                 content.find(section => section.sectionType === 'hero')
             )
