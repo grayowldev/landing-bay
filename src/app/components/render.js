@@ -15,13 +15,13 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         if (!data) return null;
         if (data.type === 'hero') {
             return renderHero(
-                content.find(section => section.sectionType === 'hero')
-            )
+                content.find(section => section.sectionType === 'hero'))
         } else if (data.type === 'benefits') {
             return renderBenefits()
         }
         else if (data.type === 'blank') {
-            return renderBlank()
+            return renderBlank(
+                content.find(section => section.id === data.id))
         }
         else if (data.type === 'call-to-action') {
             return renderCallToAction()
@@ -66,13 +66,10 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         } else {
             return null
         }
-
     }
 
     const renderText = () => {
         if (data.textType === 'heading') {
-            console.log("in heading")
-            console.log(content)
             return (
                 <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
                     <h1 className="text-5xl font-bold mb-4">{content?.content}</h1>
@@ -144,8 +141,43 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
     }
 
     const renderContainer = () => {
-        return null
+        return (
+            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                {data.orientation === "horizontal" ? (
+                <div className="flex flex-row space-x-4">
+                    {data?.elements?.map((item, index) => {
+                        return (
+                                <Render
+                                    key={index}
+                                    data={item}
+                                    content={content.contents[index]}
+                                    activeElement={activeElement}
+                                    toggleActive={toggleActive}></Render>
+                        )
+
+                    })}
+
+                </div>
+                ) : (
+                <div className="flex flex-col space-y-4">
+                    {data?.elements?.map((item, index) => {
+                        return (
+                                <Render
+                                    key={index}
+                                    data={item}
+                                    content={content.contents[index]}
+                                    activeElement={activeElement}
+                                    toggleActive={toggleActive}></Render>
+                            )
+
+                    })}
+                </div>
+                )}
+            </Element>
+        )
     }
+
+
 
     const renderInput = () => {
         return (
@@ -183,11 +215,8 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         return null
     }
 
-
     // Sections:
     const renderHero = (section) => {
-        // console.log("Section -->")
-        // console.log(section)
         return (
             <Hero
                 data={data.elements}
@@ -200,7 +229,9 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
 
     const renderBenefits = (section) => {
         return (
-            <Benefits></Benefits>
+            <Benefits
+                data={data.elements}
+            ></Benefits>
         )
     }
 
@@ -240,17 +271,16 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         )
     }
 
-    const renderBlank = () => {
+    const renderBlank = (section) => {
         return (
             <BlankSection
                 data={data}
+                content={section}
                 activeElement={activeElement}
                 toggleActive={toggleActive}
                 findElement={findElement}></BlankSection>
         )
     }
-
-
 
     return render()
 }
