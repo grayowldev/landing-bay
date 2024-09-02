@@ -1,6 +1,14 @@
 import {Element} from "@/app/components/element";
 import {PageSection} from "@/app/components/page-section";
 import {Hero} from "@/app/section/Hero";
+import Benefits from "@/app/section/Benefits";
+import {Features} from "@/app/section/features";
+import {Testimonials} from "@/app/section/Testimonials";
+import {CallToAction} from "@/app/section/CallAction";
+import {BlankSection} from "@/app/section/BlankSection";
+import {Pricing} from "@/app/section/Pricing";
+import {Footer} from "@/app/section/Footer";
+import {FAQ} from "@/app/section/FAQ";
 
 export const Render = ({data, content, activeElement, toggleActive, findElement}) => {
 
@@ -22,7 +30,31 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
             return renderHero(
                 content.find(section => section.sectionType === 'hero')
             )
-        } else if (data.type === 'button') {
+        } else if (data.type === 'benefits') {
+            return renderBenefits()
+        }
+        else if (data.type === 'blank') {
+            return renderBlank()
+        }
+        else if (data.type === 'call-to-action') {
+            return renderCallToAction()
+        }
+        else if (data.type === 'faq') {
+            return renderFAQ()
+        }
+        else if (data.type === 'features') {
+            return renderFeatures()
+        }
+        else if (data.type === 'footer') {
+            return renderFooter()
+        }
+        else if (data.type === 'pricing') {
+            return renderPricing()
+        }
+        else if (data.type === 'testimonials') {
+            return renderTestimonials()
+        }
+        else if (data.type === 'button') {
             return renderButton()
         } else if (data.type === 'text') {
             return renderText()
@@ -179,8 +211,56 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         )
     }
 
+    const renderBenefits = (section) => {
+        return (
+            <Benefits></Benefits>
+        )
+    }
+
     const renderFeatures = () => {
-        return null
+        return (
+            <Features></Features>
+        )
+    }
+
+    const renderTestimonials = () => {
+        return (
+            <Testimonials></Testimonials>
+        )
+    }
+
+    const renderCallToAction = () => {
+        return (
+            <CallToAction></CallToAction>
+        )
+    }
+
+    const renderFAQ = () => {
+        return (
+            <FAQ></FAQ>
+        )
+    }
+
+    const renderFooter = () => {
+        return (
+            <Footer></Footer>
+        )
+    }
+
+    const renderPricing = () => {
+        return (
+            <Pricing></Pricing>
+        )
+    }
+
+    const renderBlank = () => {
+        return (
+            <BlankSection
+                data={data}
+                activeElement={activeElement}
+                toggleActive={toggleActive}
+                findElement={findElement}></BlankSection>
+        )
     }
 
 

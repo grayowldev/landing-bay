@@ -13,8 +13,8 @@ export const SectionRenderer = ({data, activeElement, toggleActive, findElement,
     return (
         <div className="bg-white">
             {children}
-            {data.type === 'hero' &&
-                <Hero data={data} activeElement={activeElement} toggleActive={toggleActive} findElement={findElement}></Hero>}
+            {/*{data.type === 'hero' &&*/}
+            {/*    <Hero data={data} activeElement={activeElement} toggleActive={toggleActive} findElement={findElement}></Hero>}*/}
             {data.type === 'benefits' &&
                 <Benefits></Benefits>}
             {data.type === 'blank' &&

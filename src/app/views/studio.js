@@ -71,7 +71,81 @@ export const Studio = ({genData, setView}) => {
                 },
             ]
 
-        }
+        },
+
+            {
+                id: 4,
+                type: 'blank',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                color: 'bg-green-500',
+                elements: [
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                ]
+
+            },
+            {
+                id: 5,
+                type: 'call-to-action',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                color: 'bg-green-500',
+                elements: [
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                ]
+
+            },
+            {
+                id: 6,
+                type: 'features',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                color: 'bg-green-500',
+                elements: [
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                ]
+
+            },
+            {
+                id: 7,
+                type: 'pricing',
+                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
+                color: 'bg-green-500',
+                elements: [
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                    {
+                        type: "text",
+                    },
+                ]
+
+            }
+
         // {
         //     id: 9,
         //     type: 'blank',
@@ -190,7 +264,33 @@ export const Studio = ({genData, setView}) => {
                 }
 
             ]
-        }
+        },
+        {
+            sectionType: "benefits",
+        },
+        {
+            sectionType: "blank",
+        },
+        {
+            sectionType: "call-to-action",
+        },
+        {
+            sectionType: "features",
+        },
+
+        {
+            sectionType: "pricing",
+        },
+        {
+            sectionType: "testimonials",
+        },
+        {
+            sectionType: "faq",
+        },
+        {
+            sectionType: "footer",
+        },
+
     ]
 
 
