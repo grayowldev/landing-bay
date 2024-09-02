@@ -154,7 +154,6 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
                                     activeElement={activeElement}
                                     toggleActive={toggleActive}></Render>
                         )
-
                     })}
 
                 </div>
