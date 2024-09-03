@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import {DropIndicator} from "@/app/components/DropIndicator";
 import {PageSection} from "@/app/components/page-section";
 import {Render} from "@/app/components/render";
+import {Sidebar} from "@/app/components/Sidebar";
 
 
 
@@ -449,9 +450,12 @@ export const Studio = ({genData, setView}) => {
 
 
     return (
-            <div className="flex">
-                {}
-                {/*<div>Top bar</div>*/}
+        <div className="flex">
+            {/*<div>Top bar</div>*/}
+            <div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>
+
+            </div>
+            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}></Sidebar>
                 {/*TODO: Add drag and drop to main section to allow sections to be added*/}
                 <div className="flex-1 bg-emerald-50">
                     {items.map((layout, index) => (
