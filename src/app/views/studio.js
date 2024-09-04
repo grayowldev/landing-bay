@@ -197,14 +197,12 @@ export const Studio = ({genData, setView}) => {
                         type: "text",
                     },
                 ]
-
             },
 
             {
                 id: 5,
                 type: 'call-to-action',
                 content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                color: 'bg-green-500',
                 elements: [
                     {
                         type: "text",
@@ -375,8 +373,66 @@ export const Studio = ({genData, setView}) => {
 
     ]
 
+
+
+
+
     const [activeElement, setActiveElement] = useState(null);
     const [activeSection, setActiveSection] = useState(null);
+    const [isOpen, setIsOpen] = useState(true)
+    const [layouts, setLayouts] = useState([
+        {
+            id: 1,
+            type: 'blank',
+            elements: []
+        },
+    ])
+    const [contents, setContents] = useState([])
+
+
+    const addElement = (type) => {
+        console.log("added text clicked from studio", type)
+        let newElement = {}
+        if (type === "text") {
+            newElement = {
+                type: "text",
+                textType: "body",
+                fontSize: "24px",
+                fontWeight: "normal",
+                color: "#FFFFFF",
+                marginBottom: "40px"
+            }
+        } else if (type === "container") {
+            newElement = {
+                id: 102,
+                type: "container",
+                orientation: "vertical",
+                elements: []
+            }
+        } else {
+            return
+        }
+
+        const sectionIndex = layouts.findIndex(layout => layout.id === activeSection)
+        // console.log(layouts)
+        // console.log(sectionIndex)
+        if (sectionIndex === -1) return
+
+        const updatedLayouts = [...layouts]
+
+        updatedLayouts[sectionIndex] = {
+            ...updatedLayouts[sectionIndex],
+            elements: [...updatedLayouts[sectionIndex].elements, newElement]
+        };
+
+        // Update the layouts state
+        setLayouts(updatedLayouts);
+
+        // console.log("Updated layouts:", updatedLayouts);
+    }
+
+
+
 
     const toggleActive = (id) => {
         const newActiveElement = activeElement === id ? null : id;
@@ -420,12 +476,11 @@ export const Studio = ({genData, setView}) => {
     const onDragStart = (event, index) => {
         event.preventDefault();
         // Add visual feedback (e.g., highlight the drop target)
-        console.log(items[index])
+        // console.log(items[index])
     }
 
     const onAddSection = () => {
         // TODO: Add section
-        console.log("Section added")
         setItems([...items,
             {
                 id: items.length + 1,
@@ -448,6 +503,11 @@ export const Studio = ({genData, setView}) => {
         );
     };
 
+    const addElementOnClick = (sectionId) => {
+        // console.log("addElement ", sectionId)
+        setActiveSection(sectionId)
+        // console.log(activeSection)
+    }
 
     return (
         <div className="flex">
@@ -455,7 +515,7 @@ export const Studio = ({genData, setView}) => {
             <div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>
 
             </div>
-            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}></Sidebar>
+            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement}></Sidebar>
                 {/*TODO: Add drag and drop to main section to allow sections to be added*/}
                 <div className="flex-1 bg-emerald-50">
                     {items.map((layout, index) => (
