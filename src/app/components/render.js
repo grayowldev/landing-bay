@@ -20,8 +20,8 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
             return renderBenefits()
         }
         else if (data.type === 'blank') {
-            return renderBlank(
-                content.find(section => section.id === data.id))
+            return renderBlank()
+                // content.find(section => section.id === data.id))
         }
         else if (data.type === 'call-to-action') {
             return renderCallToAction()
@@ -71,18 +71,20 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
     const renderText = () => {
         if (data.textType === 'heading') {
             return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
-                    <h1 className="text-5xl font-bold mb-4">{content?.content}</h1>
+                <Element
+                    isActive={activeElement === data.id}
+                    onClick={() => toggleActive(data.id)}>
+                    <h1 className="text-5xl font-bold mb-4">{content?.content || 'New Heading'}</h1>
                 </Element> )
         } else if (data.textType === 'subheading') {
             return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)} styles={data.styles}>
                     <h2 className="text-3xl font-bold mb-4">{content?.content}</h2>
                 </Element>)
         } else if (data.textType === 'body') {
             return (
                 <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
-                <p className="text-lg mb-8">{content?.content}</p>
+                    <p className="text-lg">{content?.content || 'New Body'}</p>
                 </Element>)
         } else {
             return (
