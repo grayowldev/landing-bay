@@ -12,174 +12,8 @@ export const Studio = ({genData, setView}) => {
     const [items, setItems] = useState(
         [
             {
-                id: 1,
-                type: 'hero',
-                elements: [
-                    {
-                        type: "text",
-                        textType: "heading",
-                        fontSize: "48px",
-                        fontWeight: "bold",
-                        color: "#FFFFFF",
-                        marginBottom: "20px"
-                    },
-                    {
-                        type: "text",
-                        textType: "heading",
-                        fontSize: "48px",
-                        fontWeight: "bold",
-                        color: "#FFFFFF",
-                        marginBottom: "20px"
-                    },
-                    {
-                        type: "text",
-                        textType: "subheading",
-                        fontSize: "24px",
-                        fontWeight: "normal",
-                        color: "#FFFFFF",
-                        marginBottom: "40px"
-                    },
-                    {
-                        type: "button",
-                        textType: "button",
-                        textColor: "#FFFFFF",
-                        backgroundColor: "#FF5733",
-                        fontSize: "18px",
-                        padding: "10px 30px",
-                        borderRadius: "5px"
-                    },
-
-                ]
-            },
-            {
                 id:80,
                 type: 'test',
-            },
-
-            {
-                id: 4,
-                type: 'blank',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                elements: [
-                    {
-                        id: 100,
-                        type: "container",
-                        orientation: "horizontal",
-                        elements: [
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                        ]
-                    },
-                    {
-                        id: 101,
-                        type: "container",
-                        orientation: "vertical",
-                        elements: [
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                        ]
-                    },
-                    {
-                        id: 102,
-                        type: "container",
-                        orientation: "horizontal",
-                        elements: [
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                            {
-                                type: "text",
-                                textType: "body",
-                                fontSize: "24px",
-                                fontWeight: "normal",
-                                color: "#FFFFFF",
-                                marginBottom: "40px"
-                            },
-                        ]
-                    },
-                ]
-
             },
             {
                 id: 2,
@@ -376,17 +210,202 @@ export const Studio = ({genData, setView}) => {
 
     ]
 
+    const template = {
+        "layout": [
+            {
+                id: 1,
+                type: 'blank',
+                elements: []
+            },
+            {
+                id: 2,
+                type: 'hero',
+                elements: [
+                    {
+                        type: "text",
+                        textType: "heading",
+                        fontSize: "48px",
+                        fontWeight: "bold",
+                        color: "#FFFFFF",
+                        marginBottom: "20px"
+                    },
+                    {
+                        type: "text",
+                        textType: "subheading",
+                        fontSize: "48px",
+                        fontWeight: "bold",
+                        color: "#FFFFFF",
+                        marginBottom: "20px"
+                    },
+                    {
+                        type: "text",
+                        textType: "body",
+                        fontSize: "24px",
+                        fontWeight: "normal",
+                        color: "#FFFFFF",
+                        marginBottom: "40px"
+                    },
+                    {
+                        type: "button",
+                        textType: "button",
+                        textColor: "#FFFFFF",
+                        backgroundColor: "#FF5733",
+                        fontSize: "18px",
+                        padding: "10px 30px",
+                        borderRadius: "5px"
+                    },
+                ]
+            },
+            {id: 3, type: 'benefits', elements: [
+                    {
+                        type: "text",
+                        textType: "subheading",
+                        styles: {
+                            color: "#000000",
+                            marginBottom: "30px"
+                        }
+                    },
+                    {
+                        id: 101,
+                        type: "container",
+                        orientation: "horizontal",
+                        elements: [
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+
+                ]},
+            {id: 4, type: 'features', elements: []},
+            {id: 5, type: 'call-to-action', elements: []},
+            {id: 6, type: 'pricing', elements: []},
+            {id: 7, type: 'testimonials', elements: []},
+            {id: 8, type: 'faq', elements: []},
+            {id: 9, type: 'footer', elements: []},
+        ],
+        "content": [],
+    }
+
 
     const [activeElement, setActiveElement] = useState(null);
     const [activeSection, setActiveSection] = useState(null);
-    const [isOpen, setIsOpen] = useState(true)
-    const [layouts, setLayouts] = useState([
-        {
-            id: 1,
-            type: 'blank',
-            elements: []
-        },
-    ])
+    const [isOpen, setIsOpen] = useState(false)
+    const [layouts, setLayouts] = useState(template.layout)
     const [contents, setContents] = useState([])
 
 
@@ -425,8 +444,6 @@ export const Studio = ({genData, setView}) => {
                 return element;
             });
         };
-
-
 
         updatedLayouts[sectionIndex] = {
             ...updatedLayouts[sectionIndex],
@@ -513,7 +530,7 @@ export const Studio = ({genData, setView}) => {
         <div className="flex">
             {/*<div>Top bar</div>*/}
             <div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>
-                <div className={`bg-amber-700 w-full h-[calc(100vh-2rem)] p-12` }>
+                {/*<div className={`bg-amber-700 w-full h-[calc(100vh-2rem)] p-12` }>*/}
                     <div className={`bg-red-600 w-full h-full`}>
                         {layouts.map((layout, index) => (
                             <div key={index}>
@@ -524,20 +541,6 @@ export const Studio = ({genData, setView}) => {
                                     addElement={findAndUpdateElementById}
                                     sectionId={layout.id}
                                     section={layout}>
-
-                                    {/*<motion.div*/}
-                                    {/*    key={layout.id}*/}
-                                    {/*    id={`item-${index}`}*/}
-                                    {/*    className={` ${layout.color} rounded-lg`}*/}
-                                    {/*    drag="y"*/}
-                                    {/*    dragConstraints={{ top: 0, bottom: 0 }}*/}
-                                    {/*    onDragEnd={(event, info) => onDragEnd(event, info, index)}*/}
-                                    {/*    layout*/}
-                                    {/*    draggable={true}*/}
-                                    {/*    onDragStart={(event) => onDragStart(event, index)}*/}
-                                    {/*    onDragOver={(event) => onDragOver(event)}>*/}
-
-                                        {/*<SectionRenderer data={item} activeElement={activeElement} toggleActive={toggleActive} findElement={findItemById}></SectionRenderer>*/}
                                         <Render
                                             data={layout}
                                             content={content}
@@ -546,15 +549,13 @@ export const Studio = ({genData, setView}) => {
                                             findElement={findAndUpdateElementById}
                                             sectionId={layout.id}>
                                         </Render>
-                                    {/*</motion.div>*/}
                                 </PageSection>
-                                Layout
                             </div>
                         ))}
                     </div>
-                </div>
+                {/*</div>*/}
             </div>
-            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement}></Sidebar>
+            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement} activeElement={activeElement}></Sidebar>
             </div>
     )
 }

@@ -142,37 +142,48 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
 
     const renderContainer = () => {
         return (
-            <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
-                {data.orientation === "horizontal" ? (
-                <div className="flex flex-row space-x-4">
-                    {data?.elements?.map((item, index) => {
-                        return (
-                                <Render
-                                    key={index}
-                                    data={item}
-                                    content={content.contents[index]}
-                                    activeElement={activeElement}
-                                    toggleActive={toggleActive}></Render>
-                        )
-                    })}
+            <motion.div
+                onDrop={onDrop}
+                onDragOver={allowDrop}
+                onDragEnter={onDragEnter}
+                onDragLeave={onDragLeave}
+                className={`w-full h-full p-4 ${isHovered ? 'bg-blue-400' : 'bg-amber-600'}`}
+            >
+                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
+                    {data.orientation === "horizontal" ? (
+                        <div className="flex flex-row space-x-4 w-full">
+                            {data?.elements?.map((item, index) => {
+                                return (
+                                    <div key={index} className="flex-1">
+                                        <Render
+                                            key={index}
+                                            data={item}
+                                            content={content.elements[index]}
+                                            activeElement={activeElement}
+                                            toggleActive={toggleActive}
+                                            sectionId={sectionId}></Render>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    ) : (
+                        <div className="flex flex-col space-y-4">
+                            {data?.elements?.map((item, index) => {
+                                return (
+                                        <Render
+                                            key={index}
+                                            data={item}
+                                            content={content.elements[index]}
+                                            activeElement={activeElement}
+                                            toggleActive={toggleActive}
+                                            sectionId={sectionId}></Render>
+                                )
+                            })}
+                        </div>
+                    )}
 
-                </div>
-                ) : (
-                <div className="flex flex-col space-y-4">
-                    {data?.elements?.map((item, index) => {
-                        return (
-                                <Render
-                                    key={index}
-                                    data={item}
-                                    content={content.contents[index]}
-                                    activeElement={activeElement}
-                                    toggleActive={toggleActive}></Render>
-                            )
-
-                    })}
-                </div>
-                )}
-            </Element>
+                </Element>
+            </motion.div>
         )
     }
 

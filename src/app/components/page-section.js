@@ -24,7 +24,6 @@ export const PageSection = ({children, onAddSection, addElementOnClick, addEleme
             }
         }
         addElement(section.id, section.id, newElement);
-
     }
     const allowDrop = (event) => {
         event.preventDefault();
@@ -51,12 +50,10 @@ export const PageSection = ({children, onAddSection, addElementOnClick, addEleme
                 <Button className="absolute -bottom-3 left-1/2 transform -translate-x-1/2
                         translate-y-1/2 bg-sky-700 text-white text-sm px-2 py-1 rounded opacity-0
                         group-hover:opacity-100 transition-opacity z-10"
-                        onClick={onAddSection}
-                >
+                        onClick={onAddSection}>
+
                     Add Section
                 </Button>
             </div>
-
-
     )
 }
