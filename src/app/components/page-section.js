@@ -1,12 +1,30 @@
 import {Button} from "@/components/ui/button";
 import {motion} from "framer-motion";
 
-export const PageSection = ({children, onAddSection, addElementOnClick}) => {
+export const PageSection = ({children, onAddSection, addElementOnClick, addElement, section}) => {
     const onDrop = (event) => {
         event.preventDefault();
         event.stopPropagation();
         console.log("Dropping element")
         console.log(event)
+        const draggedElementType = event.dataTransfer.getData("elementType");
+        console.log("Dropped element of type:", draggedElementType);
+        // Here you should add logic to update the container's elements
+        // based on the dropped element type
+        // Update data.elements with new object
+        let newElement = {};
+        if (draggedElementType === "text") {
+            newElement = {
+                type: "text",
+                textType: "body",
+                fontSize: "24px",
+                fontWeight: "normal",
+                color: "#FFFFFF",
+                marginBottom: "40px"
+            }
+        }
+        addElement(section.id, section.id, newElement);
+
     }
     const allowDrop = (event) => {
         event.preventDefault();
@@ -29,7 +47,6 @@ export const PageSection = ({children, onAddSection, addElementOnClick}) => {
                             {children}
                         </div>
                     </motion.div>
-
                 </div>
                 <Button className="absolute -bottom-3 left-1/2 transform -translate-x-1/2
                         translate-y-1/2 bg-sky-700 text-white text-sm px-2 py-1 rounded opacity-0

@@ -52,6 +52,11 @@ export const Studio = ({genData, setView}) => {
                 ]
             },
             {
+                id:80,
+                type: 'test',
+            },
+
+            {
                 id: 4,
                 type: 'blank',
                 content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
@@ -180,7 +185,6 @@ export const Studio = ({genData, setView}) => {
                 id: 2,
                 type: 'benefits',
                 content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                color: 'bg-green-500',
                 elements: [
                     {
                         type: "text",
@@ -232,7 +236,6 @@ export const Studio = ({genData, setView}) => {
                         type: "text",
                     },
                 ]
-
             },
             {
                 id: 7,
@@ -374,9 +377,6 @@ export const Studio = ({genData, setView}) => {
     ]
 
 
-
-
-
     const [activeElement, setActiveElement] = useState(null);
     const [activeSection, setActiveSection] = useState(null);
     const [isOpen, setIsOpen] = useState(true)
@@ -389,6 +389,55 @@ export const Studio = ({genData, setView}) => {
     ])
     const [contents, setContents] = useState([])
 
+
+
+    // TODO: Review this function
+    const findAndUpdateElementById = (id, sectionId, newElement) => {
+        console.log("Finding and updating element");
+        const updatedLayouts = [...layouts];
+        console.log("Layouts ",id, sectionId, layouts)
+
+        const sectionIndex = layouts.findIndex(layout => layout.id === sectionId);
+
+        if (sectionIndex === -1) {
+            console.log("Section not found");
+            return null;
+        }
+
+        if (id === sectionId) {
+            updatedLayouts[sectionIndex] = {
+                ...updatedLayouts[sectionIndex],
+                elements: [...updatedLayouts[sectionIndex].elements, newElement]
+            }
+            setLayouts(updatedLayouts)
+            console.log(layouts)
+            return
+        }
+
+        const updateElementRecursive = (elements) => {
+            return elements.map(element => {
+                if (element.id === id) {
+                    return { ...element, ...newElement };
+                }
+                if (element.elements) {
+                    return { ...element, elements: updateElementRecursive(element.elements) };
+                }
+                return element;
+            });
+        };
+
+
+
+        updatedLayouts[sectionIndex] = {
+            ...updatedLayouts[sectionIndex],
+            elements: updateElementRecursive(updatedLayouts[sectionIndex].elements)
+        };
+
+        setLayouts(updatedLayouts);
+
+        console.log("Updated layouts:", updatedLayouts);
+        return updatedLayouts[sectionIndex];
+    };
 
     const addElement = (type) => {
         console.log("added text clicked from studio", type)
@@ -431,9 +480,6 @@ export const Studio = ({genData, setView}) => {
         // console.log("Updated layouts:", updatedLayouts);
     }
 
-
-
-
     const toggleActive = (id) => {
         const newActiveElement = activeElement === id ? null : id;
         setActiveElement(newActiveElement);
@@ -446,39 +492,6 @@ export const Studio = ({genData, setView}) => {
         return items.find(item => item.id === id)
     }
 
-    const onDragEnd = (event, info, draggedIndex) => {
-        const droppedIndex = items.findIndex((_, index) => {
-            const rect = document.getElementById(`item-${index}`).getBoundingClientRect();
-            return (
-                event.clientY >= rect.top &&
-                event.clientY <= rect.bottom &&
-                event.clientX >= rect.left &&
-                event.clientX <= rect.right
-            )
-        })
-
-        if (droppedIndex === -1 || draggedIndex === droppedIndex) return;
-
-        const updatedItems = [...items];
-        const [removed] = updatedItems.splice(draggedIndex, 1);
-        updatedItems.splice(droppedIndex, 0, removed);
-
-        setItems(updatedItems);
-    }
-
-    const onDragOver = (event) => {
-        event.preventDefault();
-        console.log("onDragOver")
-        // Add visual feedback (e.g., highlight the drop target)
-
-    }
-
-    const onDragStart = (event, index) => {
-        event.preventDefault();
-        // Add visual feedback (e.g., highlight the drop target)
-        // console.log(items[index])
-    }
-
     const onAddSection = () => {
         // TODO: Add section
         setItems([...items,
@@ -489,79 +502,59 @@ export const Studio = ({genData, setView}) => {
                 color: 'bg-red-600' }])
     }
 
-    const handleTextChange = (event, index) => {
-        const newValue = event.target.value
-
-        setItems(
-            prevItems => prevItems.map(
-                item =>  item.id === index ? { ...item, content: newValue } : item
-            )
-        )
-
-        setActiveSection(prevSection =>
-            prevSection && prevSection.id === index ? { ...prevSection, content: newValue } : prevSection
-        );
-    };
-
     const addElementOnClick = (sectionId) => {
         // console.log("addElement ", sectionId)
         setActiveSection(sectionId)
         // console.log(activeSection)
+        console.log(layouts)
     }
 
     return (
         <div className="flex">
             {/*<div>Top bar</div>*/}
             <div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>
+                <div className={`bg-amber-700 w-full h-[calc(100vh-2rem)] p-12` }>
+                    <div className={`bg-red-600 w-full h-full`}>
+                        {layouts.map((layout, index) => (
+                            <div key={index}>
+                                <PageSection
+                                    key={layout.id}
+                                    onAddSection={onAddSection}
+                                    addElementOnClick={() => addElementOnClick(layout.id)}
+                                    addElement={findAndUpdateElementById}
+                                    sectionId={layout.id}
+                                    section={layout}>
 
+                                    {/*<motion.div*/}
+                                    {/*    key={layout.id}*/}
+                                    {/*    id={`item-${index}`}*/}
+                                    {/*    className={` ${layout.color} rounded-lg`}*/}
+                                    {/*    drag="y"*/}
+                                    {/*    dragConstraints={{ top: 0, bottom: 0 }}*/}
+                                    {/*    onDragEnd={(event, info) => onDragEnd(event, info, index)}*/}
+                                    {/*    layout*/}
+                                    {/*    draggable={true}*/}
+                                    {/*    onDragStart={(event) => onDragStart(event, index)}*/}
+                                    {/*    onDragOver={(event) => onDragOver(event)}>*/}
+
+                                        {/*<SectionRenderer data={item} activeElement={activeElement} toggleActive={toggleActive} findElement={findItemById}></SectionRenderer>*/}
+                                        <Render
+                                            data={layout}
+                                            content={content}
+                                            activeElement={activeElement}
+                                            toggleActive={toggleActive}
+                                            findElement={findAndUpdateElementById}
+                                            sectionId={layout.id}>
+                                        </Render>
+                                    {/*</motion.div>*/}
+                                </PageSection>
+                                Layout
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement}></Sidebar>
-                {/*TODO: Add drag and drop to main section to allow sections to be added*/}
-                <div className="flex-1 bg-emerald-50">
-                    {items.map((layout, index) => (
-                        <div key={index}>
-                            <PageSection key={layout.id} onAddSection={onAddSection}>
-                                {/*<DropIndicator indicatorId={`item-${index}`}></DropIndicator>*/}
-                                <motion.div
-                                    key={layout.id}
-                                    id={`item-${index}`}
-                                    className={` ${layout.color} rounded-lg`}
-                                    drag="y"
-                                    dragConstraints={{ top: 0, bottom: 0 }}
-                                    onDragEnd={(event, info) => onDragEnd(event, info, index)}
-                                    layout
-                                    draggable={true}
-                                    onDragStart={(event) => onDragStart(event, index)}
-                                    onDragOver={(event) => onDragOver(event)}>
-
-                                    {/*<SectionRenderer data={item} activeElement={activeElement} toggleActive={toggleActive} findElement={findItemById}></SectionRenderer>*/}
-                                    <Render
-                                        data={layout}
-                                        content={content}
-                                        activeElement={activeElement}
-                                        toggleActive={toggleActive}
-                                        findElement={findItemById}>
-
-                                    </Render>
-                                </motion.div>
-
-                            </PageSection>
-                        </div>
-                    ))}
-                    <DropIndicator indicatorId={'-1'}></DropIndicator>
-                </div>
-                {/*<div className="w-96 bg-blue-700 p-4 text-white">*/}
-                {/*    <p>id: {activeElement}</p>*/}
-                {/*    <p>{activeSection? JSON.stringify(activeSection) : ''}</p>*/}
-                {/*    {activeSection &&*/}
-                {/*        <Textarea*/}
-                {/*            placeholder="Update Text"*/}
-                {/*            onChange={(event) => handleTextChange(event, activeElement)}*/}
-                {/*            value={activeSection.content}*/}
-                {/*            className="border rounded w-full py-2 px-3 text-gray-700"*/}
-                {/*        />*/}
-                {/*    }*/}
-                {/*</div>*/}
             </div>
     )
 }
