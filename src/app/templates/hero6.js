@@ -1,7 +1,28 @@
 import {Render} from "@/app/components/render";
 
-export default function Hero6({data, content, activeElement, findElement, toggleActive}) {
+export default function Hero6({data, contents, activeElement, findElement, toggleActive}) {
+    // TODO: Change contents to content and delete content when done
+    const content = [
 
+        {
+            content: "Welcome to Your Next Adventure",
+            type: "heading"
+        },
+        {
+            content: "Explore the World with Us",
+            type: "heading"
+        },
+        {
+            content: "Discover amazing experiences tailored just for you.",
+            type: "subheading"
+        },
+        {
+            content: "Get Started",
+            type: "button",
+            url: "/get-started"
+        }
+    ]
+    console.log(data)
     return (
         <div className="flex items-center h-screen bg-yellow-300 p-8">
             <div>

@@ -14,7 +14,7 @@ export const Hero = ({data, content, activeElement, toggleActive, findElement}) 
       <div>
         <Hero6
             data={data}
-            content={content}
+            // content={content}
             activeElement={activeElement}
             toggleActive={toggleActive}
             findElement={findElement}></Hero6>
