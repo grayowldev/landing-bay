@@ -9,14 +9,25 @@ import {BlankSection} from "@/app/section/BlankSection";
 import {Pricing} from "@/app/section/Pricing";
 import {Footer} from "@/app/section/Footer";
 import {FAQ} from "@/app/section/FAQ";
+import {TestComp} from "@/app/section/TestComp";
 
-export const Render = ({data, content, activeElement, toggleActive, findElement}) => {
+import {motion} from "framer-motion";
+import { useState } from 'react';
+import {renderText} from "@/app/components/rendering/RenderText";
+
+export const Render = ({data, content, activeElement, toggleActive, findElement, sectionId}) => {
+    // const content = "Content"
+    console.log("!!!!! Section Id", sectionId)
+    console.log("data", data)
     const render = () => {
         if (!data) return null;
         if (data.type === 'hero') {
-            return renderHero(
-                content.find(section => section.sectionType === 'hero'))
-        } else if (data.type === 'benefits') {
+            return renderHero()
+                // content.find(section => section.sectionType === 'hero'))
+        } else if (data.type === 'test') {
+            return <TestComp></TestComp>
+        }
+        else if (data.type === 'benefits') {
             return renderBenefits()
         }
         else if (data.type === 'blank') {
@@ -44,7 +55,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         else if (data.type === 'button') {
             return renderButton()
         } else if (data.type === 'text') {
-            return renderText()
+            return renderText({data, content, activeElement, toggleActive})
         } else if (data.type === 'image') {
             return renderImage()
         } else if (data.type === 'video') {
@@ -66,33 +77,6 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         } else {
             return null
         }
-    }
-
-    const renderText = () => {
-        if (data.textType === 'heading') {
-            return (
-                <Element
-                    isActive={activeElement === data.id}
-                    onClick={() => toggleActive(data.id)}>
-                    <h1 className="text-5xl font-bold mb-4">{content?.content || 'New Heading'}</h1>
-                </Element> )
-        } else if (data.textType === 'subheading') {
-            return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)} styles={data.styles}>
-                    <h2 className="text-3xl font-bold mb-4">{content?.content}</h2>
-                </Element>)
-        } else if (data.textType === 'body') {
-            return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
-                    <p className="text-lg">{content?.content || 'New Body'}</p>
-                </Element>)
-        } else {
-            return (
-                <Element isActive={activeElement === data.id} onClick={() => toggleActive(data.id)}>
-                    <p className="text-lg mb-8">{content?.content}</p>
-                </Element>)
-        }
-
     }
 
     const renderButton = () => {
@@ -143,6 +127,64 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
     }
 
     const renderContainer = () => {
+        const [isHovered, setIsHovered] = useState(false);
+        console.log("In Container", sectionId)
+        console.log("container contents", content)
+
+        const allowDrop = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        const onDrop = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const draggedElementType = event.dataTransfer.getData("elementType");
+            console.log("Dropped element of type:", draggedElementType);
+            // Here you should add logic to update the container's elements
+            // based on the dropped element type
+            // Update data.elements with new object
+            let newElement = {};
+            if (draggedElementType === "text") {
+                newElement = {
+                    type: "text",
+                    textType: "body",
+                    fontSize: "24px",
+                    fontWeight: "normal",
+                    color: "#FFFFFF",
+                    marginBottom: "40px"
+                }
+            }
+            const updatedElements = [...data.elements, newElement];
+
+            const updatedData = {
+                ...data,
+                elements: [...(data.elements || []), newElement]
+            };
+
+            // Call the findAndUpdateElementById function passed as a prop
+            if (typeof findElement === 'function') {
+                findElement(data.id, sectionId, updatedData);
+            } else {
+                console.warn('findAndUpdateElementById function is not provided');
+            }
+
+            console.log("Updated data:", updatedData);
+            setIsHovered(false);
+        }
+
+        const onDragEnter = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setIsHovered(true);
+        }
+
+        const onDragLeave = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setIsHovered(false);
+        }
+
         return (
             <motion.div
                 onDrop={onDrop}
@@ -232,7 +274,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
         return (
             <Hero
                 data={data.elements}
-                content={section.contents}
+                // content={section.contents}
                 activeElement={activeElement}
                 toggleActive={toggleActive}
                 findElement={findElement}></Hero>
@@ -249,7 +291,8 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
 
     const renderFeatures = () => {
         return (
-            <Features></Features>
+            <Features
+                data={data.elements}></Features>
         )
     }
 
@@ -279,7 +322,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
 
     const renderPricing = () => {
         return (
-            <Pricing></Pricing>
+            <Pricing data={data.elements}></Pricing>
         )
     }
 
@@ -290,7 +333,8 @@ export const Render = ({data, content, activeElement, toggleActive, findElement}
                 content={section}
                 activeElement={activeElement}
                 toggleActive={toggleActive}
-                findElement={findElement}></BlankSection>
+                findElement={findElement}
+                sectionId={sectionId}></BlankSection>
         )
     }
 
