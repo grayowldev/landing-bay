@@ -2,13 +2,13 @@ import {Button} from "@/components/ui/button";
 import {PlusSquare} from "lucide-react"
 import {motion} from "framer-motion";
 import {StudioButton} from "@/app/components/StudioButton";
+import {ElementEditor} from "@/app/components/ElementEditor";
 
-export const Sidebar = ({isOpen, setIsOpen, addElement}) => {
+export const Sidebar = ({isOpen, setIsOpen, addElement, activeElement}) => {
 
     const toggleSidebar = () => {
-        setIsOpen(isOpen) // TODO: toggle sidebar
+        setIsOpen(!isOpen)
     }
-
 
     return (
         <div className={`flex fixed top-0 right-0 bottom-0  h-screen bg-blue-700 ${isOpen ? 'w-[512px]' : 'w-[72px]'}`}>
@@ -27,6 +27,7 @@ export const Sidebar = ({isOpen, setIsOpen, addElement}) => {
 
                     Add Text
                 </StudioButton>
+                <ElementEditor></ElementEditor>
 
             </div>
             <div className={`bg-red-600 w-[72px] h-full`}>
