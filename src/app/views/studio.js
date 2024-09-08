@@ -15,208 +15,11 @@ export const Studio = ({genData, setView}) => {
                 id:80,
                 type: 'test',
             },
-            {
-                id: 2,
-                type: 'benefits',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                elements: [
-                    {
-                        type: "text",
-                        textType: "heading",
-                        fontSize: "48px",
-                        fontWeight: "bold",
-                        color: "#FFFFFF",
-                        marginBottom: "20px"
-                    },
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                ]
-            },
-
-            {
-                id: 5,
-                type: 'call-to-action',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                elements: [
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                ]
-
-            },
-            {
-                id: 6,
-                type: 'features',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                color: 'bg-green-500',
-                elements: [
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                ]
-            },
-            {
-                id: 7,
-                type: 'pricing',
-                content: "Benefit 1: High Quality, Benefit 2: Affordable Prices",
-                color: 'bg-green-500',
-                elements: [
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                    {
-                        type: "text",
-                    },
-                ]
-
-            }
     ]
 )
 
-    const content = [
-        {
-            sectionType: "hero",
-            contents: [
-                {
-                    content: "Welcome to Your Next Adventure",
-                    type: "heading"
-                },
-                {
-                    content: "Explore the World with Us",
-                    type: "heading"
-                },
-                {
-                    content: "Discover amazing experiences tailored just for you.",
-                    type: "subheading"
-                },
-                {
-                    content: "Get Started",
-                    type: "button",
-                    url: "/get-started"
-                }
-
-            ]
-        },
-        {
-            id: 4,
-            sectionType: "blank",
-            content: [
-                {
-                    type: "container",
-                    contents: [
-                        {
-                            content: "Welcome to Your Next Adventure",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Explore the World with Us",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Discover amazing experiences tailored just for you.",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Get Started",
-                            type: "subheading",
-                        }
-                    ]
-                },
-                {
-                    type: "container",
-                    contents: [
-                        {
-                            content: "Welcome to Your Next Adventure (2)",
-                            type: "body"
-                        },
-                        {
-                            content: "Explore the World with Us (2)",
-                            type: "body"
-                        },
-                        {
-                            content: "Discover amazing experiences tailored just for you. (2)",
-                            type: "body"
-                        },
-                        {
-                            content: "Get Started (2)",
-                            type: "body",
-                        }
-                    ]
-                },
-                {
-                    type: "container",
-                    contents: [
-                        {
-                            content: "Welcome to Your Next Adventure",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Explore the World with Us",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Discover amazing experiences tailored just for you.",
-                            type: "subheading"
-                        },
-                        {
-                            content: "Get Started",
-                            type: "subheading",
-                        }
-                    ]
-                },
-            ]
-        },
-        {
-            sectionType: "benefits",
-        },
-        {
-            sectionType: "call-to-action",
-        },
-        {
-            sectionType: "features",
-        },
-
-        {
-            sectionType: "pricing",
-        },
-        {
-            sectionType: "testimonials",
-        },
-        {
-            sectionType: "faq",
-        },
-        {
-            sectionType: "footer",
-        },
-
-    ]
-
     const template = {
         "layout": [
-            {
-                id: 1,
-                type: 'blank',
-                elements: []
-            },
             {
                 id: 2,
                 type: 'hero',
@@ -279,7 +82,7 @@ export const Studio = ({genData, setView}) => {
                                         type: "text",
                                         textType: "body",
                                         styles: {
-                                            color: "#0000",
+                                            color: "#000000",
                                             // marginBottom: "30px"
                                         }
                                     },
@@ -391,11 +194,294 @@ export const Studio = ({genData, setView}) => {
                     },
 
                 ]},
-            {id: 4, type: 'features', elements: []},
+            {id: 4, type: 'features', elements: [
+                    {
+                        type: "text",
+                        textType: "subheading",
+                        styles: {
+                            color: "#000000",
+                            marginBottom: "30px"
+                        }
+                    },
+                    {
+                        id: 101,
+                        type: "container",
+                        orientation: "horizontal",
+                        elements: [
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#000000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                            {
+                                id: 201,
+                                type: "container",
+                                orientation: "vertical",
+                                elements: [
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        textType: "body",
+                                        styles: {
+                                            color: "#FF0000",
+                                            // marginBottom: "30px"
+                                        }
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                ]},
             {id: 5, type: 'call-to-action', elements: []},
-            {id: 6, type: 'pricing', elements: []},
+            {id: 6, type: 'pricing', elements: [
+                    {
+                        type: "text",
+                        textType: "subheading",
+                        styles: {
+                            color: "#000000",
+                            marginBottom: "30px"
+                        }
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                        ]
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                        ]
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#FF0000",
+                                    // marginBottom: "30px"
+                                }
+                            },
+                        ]
+                    },
+                ]},
             {id: 7, type: 'testimonials', elements: []},
-            {id: 8, type: 'faq', elements: []},
+            // {id: 8, type: 'faq', elements: []},
             {id: 9, type: 'footer', elements: []},
         ],
         "content": [],
@@ -529,7 +615,7 @@ export const Studio = ({genData, setView}) => {
     return (
         <div className="flex">
             {/*<div>Top bar</div>*/}
-            <div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>
+            {/*<div className={`bg-gray-500 flex-grow overflow-y-auto p-4 ${isOpen ? 'mr-[512px]' : 'mr-[72px]'}`}>*/}
                 {/*<div className={`bg-amber-700 w-full h-[calc(100vh-2rem)] p-12` }>*/}
                     <div className={`bg-red-600 w-full h-full`}>
                         {layouts.map((layout, index) => (
@@ -543,7 +629,7 @@ export const Studio = ({genData, setView}) => {
                                     section={layout}>
                                         <Render
                                             data={layout}
-                                            content={content}
+                                            content={template.content}
                                             activeElement={activeElement}
                                             toggleActive={toggleActive}
                                             findElement={findAndUpdateElementById}
@@ -554,8 +640,8 @@ export const Studio = ({genData, setView}) => {
                         ))}
                     </div>
                 {/*</div>*/}
-            </div>
-            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement} activeElement={activeElement}></Sidebar>
+            {/*</div>*/}
+            {/*<Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement} activeElement={activeElement}></Sidebar>*/}
             </div>
     )
 }
