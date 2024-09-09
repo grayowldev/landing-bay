@@ -218,7 +218,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#000000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -226,7 +225,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -234,7 +232,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -257,7 +254,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -265,7 +261,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -273,7 +268,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -281,7 +275,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                 ]
@@ -296,7 +289,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -304,7 +296,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -312,7 +303,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                     {
@@ -320,7 +310,6 @@ export const Studio = ({genData, setView}) => {
                                         textType: "body",
                                         styles: {
                                             color: "#FF0000",
-                                            // marginBottom: "30px"
                                         }
                                     },
                                 ]
@@ -480,7 +469,109 @@ export const Studio = ({genData, setView}) => {
                         ]
                     },
                 ]},
-            {id: 7, type: 'testimonials', elements: []},
+            {id: 7, type: 'testimonials', elements: [
+                    {
+                        type: "text",
+                        textType: "subheading2",
+                        styles: {
+                            color: "#000000",
+                            marginBottom: "30px"
+                        }
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "2px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "0px",
+                                    fontWeight: "bold",
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                }
+                            },
+                        ]
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "2px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "0px",
+                                    fontWeight: "bold",
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                }
+                            },
+                        ]
+                    },
+                    {
+                        id: 201,
+                        type: "container",
+                        orientation: "vertical",
+                        elements: [
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "2px"
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                    marginBottom: "0px",
+                                    fontWeight: "bold",
+                                }
+                            },
+                            {
+                                type: "text",
+                                textType: "body",
+                                styles: {
+                                    color: "#000000",
+                                }
+                            },
+                        ]
+                    }
+                ]},
             // {id: 8, type: 'faq', elements: []},
             {id: 9, type: 'footer', elements: []},
         ],

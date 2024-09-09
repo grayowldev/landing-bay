@@ -298,7 +298,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
 
     const renderTestimonials = () => {
         return (
-            <Testimonials></Testimonials>
+            <Testimonials data={data.elements}></Testimonials>
         )
     }
 
