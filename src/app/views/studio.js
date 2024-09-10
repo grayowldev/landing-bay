@@ -25,6 +25,7 @@ export const Studio = ({genData, setView}) => {
                 type: 'hero',
                 elements: [
                     {
+                        id: 1001,
                         type: "text",
                         textType: "heading",
                         fontSize: "48px",
@@ -33,6 +34,7 @@ export const Studio = ({genData, setView}) => {
                         marginBottom: "20px"
                     },
                     {
+                        id: 1002,
                         type: "text",
                         textType: "subheading",
                         fontSize: "48px",
@@ -41,6 +43,7 @@ export const Studio = ({genData, setView}) => {
                         marginBottom: "20px"
                     },
                     {
+                        id: 1003,
                         type: "text",
                         textType: "body",
                         fontSize: "24px",
@@ -49,6 +52,7 @@ export const Studio = ({genData, setView}) => {
                         marginBottom: "40px"
                     },
                     {
+                        id: 1004,
                         type: "button",
                         textType: "button",
                         textColor: "#FFFFFF",
@@ -581,7 +585,7 @@ export const Studio = ({genData, setView}) => {
 
     const [activeElement, setActiveElement] = useState(null);
     const [activeSection, setActiveSection] = useState(null);
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const [layouts, setLayouts] = useState(template.layout)
     const [contents, setContents] = useState([])
 
@@ -633,6 +637,34 @@ export const Studio = ({genData, setView}) => {
         return updatedLayouts[sectionIndex];
     };
 
+    const findLayoutById = (id, layout = template.layout) => {
+        let foundElement = null;
+        layout.map((section) => {
+            if (section.id === id) {
+                foundElement = { sectionId: section.id, element: section }
+                return;
+            }
+
+            if (section.elements && section.elements.length > 0) {
+                section.elements.map((element) => {
+                    if (element.id === id) {
+                        foundElement = { sectionId: section.id, element: element }
+                        return;
+                    }
+
+                    if (element.elements && element.elements.length > 0) {
+                        const result = findLayoutById(id, element.elements)
+                        if (result) {
+                            foundElement = { sectionId: section.id, element: result.element}
+                        }
+                    }
+                })
+            }
+        })
+
+        return foundElement
+    }
+
     const addElement = (type) => {
         console.log("added text clicked from studio", type)
         let newElement = {}
@@ -675,6 +707,7 @@ export const Studio = ({genData, setView}) => {
     }
 
     const toggleActive = (id) => {
+        console.log("Toggle active", activeElement, id)
         const newActiveElement = activeElement === id ? null : id;
         setActiveElement(newActiveElement);
         setActiveSection(newActiveElement ? findItemById(newActiveElement) : null);
@@ -732,7 +765,13 @@ export const Studio = ({genData, setView}) => {
                     </div>
                 {/*</div>*/}
             {/*</div>*/}
-            {/*<Sidebar isOpen={isOpen} setIsOpen={setIsOpen} addElement={addElement} activeElement={activeElement}></Sidebar>*/}
+            <Sidebar
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                addElement={addElement}
+                activeElement={activeElement}
+                findElement={findLayoutById}
+            ></Sidebar>
             </div>
     )
 }
