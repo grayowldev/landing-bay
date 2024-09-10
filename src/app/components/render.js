@@ -16,14 +16,10 @@ import { useState } from 'react';
 import {renderText} from "@/app/components/rendering/RenderText";
 
 export const Render = ({data, content, activeElement, toggleActive, findElement, sectionId}) => {
-    // const content = "Content"
-    console.log("!!!!! Section Id", sectionId)
-    console.log("data", data)
     const render = () => {
         if (!data) return null;
         if (data.type === 'hero') {
             return renderHero()
-                // content.find(section => section.sectionType === 'hero'))
         } else if (data.type === 'test') {
             return <TestComp></TestComp>
         }
@@ -32,7 +28,6 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
         }
         else if (data.type === 'blank') {
             return renderBlank()
-                // content.find(section => section.id === data.id))
         }
         else if (data.type === 'call-to-action') {
             return renderCallToAction()
@@ -128,8 +123,8 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
 
     const renderContainer = () => {
         const [isHovered, setIsHovered] = useState(false);
-        console.log("In Container", sectionId)
-        console.log("container contents", content)
+        // console.log("In Container", sectionId)
+        // console.log("container contents", content)
 
         const allowDrop = (event) => {
             event.preventDefault();
