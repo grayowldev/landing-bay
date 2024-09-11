@@ -31,7 +31,8 @@ export const PageSection = ({children, onAddSection, addElementOnClick, addEleme
     }
     return (
             <div className='relative group'>
-                <div className="relative border-2 border-transparent group-hover:border-sky-700 p-4">
+                {/*border-2 p-4*/}
+                <div className="relative  border-transparent group-hover:border-sky-700 ">
                     {/* Button positioned in the top-right corner of the children */}
                     <Button
                         className={`absolute top-14 right-28 transform translate-x-1/2 -translate-y-1/2 bg-black 
