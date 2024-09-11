@@ -60,7 +60,7 @@ export const ElementEditor = ({data, content, activeElement, toggleActive, findE
                     </SelectContent>
                 </Select>
                 <h4>Text color</h4>
-                <Input placeholder={`Color HEX Code`}></Input>
+                <Input placeholder={`#:${currentElement?.styles?.color || '000000' }`}></Input>
                 <h4>Margin</h4>
                 <Input placeholder={`Margin`}></Input>
             </div>
