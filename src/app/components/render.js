@@ -13,7 +13,7 @@ import {TestComp} from "@/app/section/TestComp";
 
 import {motion} from "framer-motion";
 import { useState } from 'react';
-import {renderText} from "@/app/components/rendering/RenderText";
+import {RenderText} from "@/app/components/rendering/RenderText";
 
 export const Render = ({data, content, activeElement, toggleActive, findElement, sectionId}) => {
     const render = () => {
@@ -50,7 +50,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
         else if (data.type === 'button') {
             return renderButton()
         } else if (data.type === 'text') {
-            return renderText({data, content, activeElement, toggleActive})
+            return RenderText({data, content, activeElement, toggleActive})
         } else if (data.type === 'image') {
             return renderImage()
         } else if (data.type === 'video') {
