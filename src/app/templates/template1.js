@@ -10,8 +10,10 @@ export const template1 ={
           textType: "heading",
           fontSize: "48px",
           fontWeight: "bold",
-          color: "#FFFFFF",
-          marginBottom: "20px"
+          marginBottom: "20px",
+          styles: {
+            color: "#000000",
+          }
         },
         {
           id: 1002,
@@ -559,5 +561,33 @@ export const template1 ={
     // {id: 8, type: 'faq', elements: []},
     {id: 9, type: 'footer', elements: []},
   ],
-  "content": [],
+  "content": [
+    {
+      id: 2,
+      type: "hero",
+      elements: [
+        {
+          id: 1001,
+          content: "Welcome to Your Next Adventure",
+          type: "heading"
+        },
+        {
+          id: 1002,
+          content: "Explore the World with Us",
+          type: "heading"
+        },
+        {
+          id: 1003,
+          content: "Discover amazing experiences tailored just for you.",
+          type: "subheading"
+        },
+        {
+          id: 1004,
+          content: "Get Started",
+          type: "button",
+          url: "/get-started"
+        }
+      ]
+    }
+  ],
 }
