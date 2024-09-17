@@ -1,4 +1,4 @@
-export const template1 ={
+export const template1 = {
   "layout": [
     {
       "id": 2,

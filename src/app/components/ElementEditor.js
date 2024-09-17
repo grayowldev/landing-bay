@@ -16,12 +16,12 @@ export const ElementEditor = ({data, content, activeElement, toggleActive, findE
     }
 
     const handleContentChange = (event) => {
-        console.log("@@ handleContentChange", event.target.value)
+        // console.log("@@ handleContentChange", event.target.value)
         const newContent = activeElement?.content
         newContent.element.content = event.target.value
-        console.log("@@ activeElement content", activeElement.content)
+        // console.log("@@ activeElement content", activeElement.content)
         const newElement = {...activeElement, content: newContent}
-        console.log("@@ newElement", newElement)
+        // console.log("@@ newElement", newElement)
         updateContent(activeElement.id, activeElement.content.sectionId , newContent)
     }
 

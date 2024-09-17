@@ -15,7 +15,7 @@ import {motion} from "framer-motion";
 import { useState } from 'react';
 import {RenderText} from "@/app/components/rendering/RenderText";
 
-export const Render = ({data, content, activeElement, toggleActive, findElement, sectionId}) => {
+export const Render = ({data, content, activeElement, toggleActive, findElement, sectionId, sidebarRef}) => {
     const render = () => {
         if (!data) return null;
         if (data.type === 'hero') {
@@ -50,7 +50,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
         else if (data.type === 'button') {
             return renderButton()
         } else if (data.type === 'text') {
-            return RenderText({data, content, activeElement, toggleActive})
+            return RenderText({data, content, activeElement, toggleActive, sidebarRef})
         } else if (data.type === 'image') {
             return renderImage()
         } else if (data.type === 'video') {
@@ -269,7 +269,7 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
         return (
             <Hero
                 data={data.elements}
-                // content={section.contents}
+                content={content}
                 activeElement={activeElement}
                 toggleActive={toggleActive}
                 findElement={findElement}></Hero>
