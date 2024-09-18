@@ -248,7 +248,6 @@ export const Studio = ({genData, setView}) => {
     }
 
 
-    console.log("layouts", layouts)
     console.log(contents)
     return (
         <div className="flex">

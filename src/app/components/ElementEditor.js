@@ -18,27 +18,22 @@ export const ElementEditor = ({data, content, activeElement, toggleActive, findE
     }
 
     const handleContentChange = (event) => {
-        // console.log("@@ handleContentChange", event.target.value)
+
         const newContent = activeElement?.content
         newContent.element.content = event.target.value
-        // console.log("@@ activeElement content", activeElement.content)
-        const newElement = {...activeElement, content: newContent}
-        // console.log("@@ newElement", newElement)
+        const newElement = { ...activeElement, content: newContent }
         updateContent(activeElement.id, activeElement.content.sectionId , newContent)
+
     }
 
     const handleLayoutChange = (event, field) => {
 
-        console.log("@@ handleLayoutChange", event.target.value)
-        console.log("@@ handleLayoutChange", field)
-        let styles = {...activeElement?.layout?.element?.styles} || {}
-        const newLayout = {...activeElement?.layout}
-        if (field === "background") {
+        let styles = { ...activeElement?.layout?.element?.styles } || {}
+        let newLayout = { ...activeElement?.layout }
+        if ( field === "background" ) {
             styles.background = event.target.value
         }
-        console.log(styles)
         newLayout.element.styles = styles
-        console.log("@@ newLayout", newLayout)
         updateLayout(activeElement.id, activeElement.layout.sectionId , newLayout)
     }
 

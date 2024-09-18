@@ -11,8 +11,6 @@ import Hero10 from "@/app/templates/Hero1";
 
 export const Hero = ({data, content, styles, activeElement, toggleActive, findElement}) => {
     console.log("Hero Content: ",content)
-    console.log("Hero Data: ",data)
-    console.log("Hero Styles: ",styles)
 
     return (
       <div onClick={() => toggleActive(content.id)}>
