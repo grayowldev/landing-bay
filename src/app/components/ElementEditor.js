@@ -1,7 +1,7 @@
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
-export const ElementEditor = ({data, content, activeElement, toggleActive, findElement, elementType, updateContent, updateElement}) => {
+export const ElementEditor = ({data, content, activeElement, toggleActive, findElement, elementType, updateContent, updateLayout}) => {
     console.log("@@ ElementEditor, activeElement", activeElement)
     console.log("@@ ElementEditor, elementType",elementType)
     let currentElement = null;
@@ -10,6 +10,8 @@ export const ElementEditor = ({data, content, activeElement, toggleActive, findE
         switch (activeElement?.layout?.element.type) {
             case 'text':
                 return textEditor()
+            case 'hero':
+                return sectionEditor()
             default:
                 return <div>Null</div>
         }
@@ -25,6 +27,37 @@ export const ElementEditor = ({data, content, activeElement, toggleActive, findE
         updateContent(activeElement.id, activeElement.content.sectionId , newContent)
     }
 
+    const handleLayoutChange = (event, field) => {
+
+        console.log("@@ handleLayoutChange", event.target.value)
+        console.log("@@ handleLayoutChange", field)
+        let styles = {...activeElement?.layout?.element?.styles} || {}
+        const newLayout = {...activeElement?.layout}
+        if (field === "background") {
+            styles.background = event.target.value
+        }
+        console.log(styles)
+        newLayout.element.styles = styles
+        console.log("@@ newLayout", newLayout)
+        updateLayout(activeElement.id, activeElement.layout.sectionId , newLayout)
+    }
+
+    const sectionEditor = () => {
+        return (
+            <div>
+                <div>
+                    <h4>Background Color</h4>
+                    <Input
+                        type={`text`}
+                        // placeholder={`${activeElement?.content.element.backgroundColor}`}
+                        // value={`${activeElement?.content.element.backgroundColor}`}
+                        placeholder="Background Color"
+                        onChange={(event) => handleLayoutChange(event, "background")}
+                    />
+                </div>
+            </div>
+        )
+    }
 
     const textEditor = () => {
         return (

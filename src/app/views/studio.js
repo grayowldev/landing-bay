@@ -168,6 +168,7 @@ export const Studio = ({genData, setView}) => {
     }
 
     const updateLayout = (id, sectionId, newElement) => {
+        console.log("in update layout", id, sectionId, newElement)
         findAndUpdateElementById(id, sectionId, newElement, "layout")
     }
     const updateContent = (id, sectionId, newElement) => {
@@ -213,6 +214,7 @@ export const Studio = ({genData, setView}) => {
     }
 
     const toggleActive = (id) => {
+        console.log("Toggling active", id)
         let newActiveElement = {
             id: id,
             layout: null,
@@ -246,9 +248,7 @@ export const Studio = ({genData, setView}) => {
     }
 
 
-
-
-
+    console.log("layouts", layouts)
     console.log(contents)
     return (
         <div className="flex">

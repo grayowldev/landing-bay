@@ -1,12 +1,11 @@
 import {Render} from "@/app/components/render";
 
-export default function Hero6({data, content, activeElement, findElement, toggleActive}) {
-    // console.log("Hero6: ",data)
-    // console.log("Hero6: ",content)
-
+export default function Hero6({data, content, styles, activeElement, findElement, toggleActive}) {
+    console.log("Hero6: ",data)
+    console.log("Hero6 styles: ",styles)
 
     return (
-        <div className="flex items-center h-screen bg-yellow-300 p-8">
+        <div className="flex items-center h-screen bg-yellow-300 p-8" style={styles} >
             <div>
                 {data.map((item, index) => {
                     return (

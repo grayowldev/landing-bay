@@ -266,13 +266,15 @@ export const Render = ({data, content, activeElement, toggleActive, findElement,
 
     // Sections:
     const renderHero = (section) => {
+        console.log("renderHero: ", data)
         return (
             <Hero
                 data={data.elements}
                 content={content}
                 activeElement={activeElement}
                 toggleActive={toggleActive}
-                findElement={findElement}></Hero>
+                findElement={findElement}
+                styles={data.styles}></Hero>
         )
     }
 

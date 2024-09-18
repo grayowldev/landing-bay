@@ -9,16 +9,20 @@ import Hero8 from "@/app/templates/hero8";
 import Hero9 from "@/app/templates/hero9";
 import Hero10 from "@/app/templates/Hero1";
 
-export const Hero = ({data, content, activeElement, toggleActive, findElement}) => {
+export const Hero = ({data, content, styles, activeElement, toggleActive, findElement}) => {
     console.log("Hero Content: ",content)
+    console.log("Hero Data: ",data)
+    console.log("Hero Styles: ",styles)
+
     return (
-      <div>
+      <div onClick={() => toggleActive(content.id)}>
         <Hero6
             data={data}
             content={content}
             activeElement={activeElement}
             toggleActive={toggleActive}
-            findElement={findElement}></Hero6>
+            findElement={findElement}
+            styles={styles}></Hero6>
       </div>
 
 

@@ -43,7 +43,10 @@ export const template1 = {
           padding: "10px 30px",
           borderRadius: "5px"
         },
-      ]
+      ],
+      styles: {
+        "background": "#B7BF99",
+      }
     },
     {id: 3, type: 'benefits', elements: [
       {

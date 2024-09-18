@@ -17,7 +17,8 @@ export const RenderText = ({data, content, activeElement, toggleActive}) => {
     return (
         <Element
             isActive={activeElement === data.id}
-            onClick={() => {
+            onClick={(e) => {
+                e.stopPropagation()
                 toggleActive(data.id)
                 console.log("Text clicked")
             }}
