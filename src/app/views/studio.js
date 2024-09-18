@@ -1,27 +1,37 @@
 'use client'
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {motion} from "framer-motion";
 import {DropIndicator} from "@/app/components/DropIndicator";
 import {PageSection} from "@/app/components/page-section";
 import {Render} from "@/app/components/render";
 import {Sidebar} from "@/app/components/Sidebar";
-import {template1} from "@/app/templates/template1";
+import {loadTemplateFromLocalStorage, saveTemplateToLocalStorage, template1} from "@/app/templates/template1";
 import {log} from "next/dist/server/typescript/utils";
 
 
 
 export const Studio = ({genData, setView}) => {
-
     const [activeElement, setActiveElement] = useState({});
     const [activeSection, setActiveSection] = useState(null);
     const [isOpen, setIsOpen] = useState(true)
-    const [layouts, setLayouts] = useState(template1.layout)
-    const [contents, setContents] = useState(template1.content)
+    const [layouts, setLayouts] = useState(() => {
+        const storedLayout = loadTemplateFromLocalStorage()
+        return storedLayout?.layout || template1.layout
+    });
+    const [contents, setContents] = useState(() => {
+        const storedContent = loadTemplateFromLocalStorage()
+        return storedContent?.content || template1.content
+    })
     const sidebarRef = useRef(null)
 
+    useEffect(() => {
+        if ({layout: layouts, content: contents} !== template1) {
+            saveTemplateToLocalStorage(layouts, contents)
+        }
+    }, [layouts, contents]);
 
 
-    // TODO: Review this function
+
     const findAndUpdateElementById = (id, sectionId, newElement, elementLoc = 'layout') => {
 
         const updatedLayouts = [...layouts];
@@ -101,7 +111,7 @@ export const Studio = ({genData, setView}) => {
         }
     };
 
-    const findLayoutById = (id, layout = template1.layout) => {
+    const findLayoutById = (id, layout = layouts) => {
         let foundElement = null;
         layout.map((section) => {
             if (section.id === id) {
@@ -129,7 +139,7 @@ export const Studio = ({genData, setView}) => {
         return foundElement
     }
 
-    const findContentById = (id, content = template1.content) => {
+    const findContentById = (id, content = contents) => {
         let foundElement = null;
         content.map((section) => {
             if (section.id === id) {
@@ -234,6 +244,10 @@ export const Studio = ({genData, setView}) => {
     const addElementOnClick = (sectionId) => {
         setActiveSection(sectionId)
     }
+
+
+
+
 
     console.log(contents)
     return (

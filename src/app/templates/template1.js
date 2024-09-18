@@ -591,3 +591,12 @@ export const template1 = {
     }
   ],
 }
+
+export const saveTemplateToLocalStorage = (layout, content) => {
+  localStorage.setItem('template', JSON.stringify({layout, content}));
+}
+
+export const loadTemplateFromLocalStorage = () => {
+  const storedTemplate = localStorage.getItem('template');
+  return storedTemplate ? JSON.parse(storedTemplate) : null;
+}
